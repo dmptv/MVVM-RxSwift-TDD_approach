@@ -18,13 +18,14 @@ class ReactiveTableViewController: UIViewController {
         }
     }
     
+    // instead of Variable -> BehaviorRelay
     var cars: BehaviorRelay<[CarViewModel]> = BehaviorRelay(value: (UIApplication.shared.delegate as! AppDelegate).cars)
     let disposeBag = DisposeBag()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        cars.asObservable().bind(to: tableView.rx.items(cellIdentifier: "CarCell",cellType: CarTableViewCell.self)) { (index, carViewModel: CarViewModel, cell) in
+        cars.asObservable().bind(to: tableView.rx.items(cellIdentifier: "CarCell", cellType: CarTableViewCell.self)) { (index, carViewModel: CarViewModel, cell) in
             cell.carViewModel = carViewModel
             }.disposed(by: disposeBag)
       
