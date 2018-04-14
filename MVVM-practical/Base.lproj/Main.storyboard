@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kbt-qK-LrH">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Reactive Table View Controller-->
+        <scene sceneID="7Fp-aJ-lkA">
+            <objects>
+                <viewController id="k0t-lU-zlC" customClass="ReactiveTableViewController" customModule="MVVM_practical" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="FOb-iR-om6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8tO-IA-Xmv">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CarCell" rowHeight="100" id="MfN-2l-cix" customClass="CarTableViewCell" customModule="MVVM_practical" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="100"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MfN-2l-cix" id="yIX-n2-mhQ">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lMg-zu-akS">
+                                                    <rect key="frame" x="15" y="10" width="107" height="79"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U1l-bj-dz8">
+                                                    <rect key="frame" x="144" y="11" width="194" height="23"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hyl-Sf-EeQ">
+                                                    <rect key="frame" x="144" y="50" width="204" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="carPhotoView" destination="lMg-zu-akS" id="ApO-d2-YGb"/>
+                                            <outlet property="carPowerLAbel" destination="Hyl-Sf-EeQ" id="uXE-ww-WWX"/>
+                                            <outlet property="carTitleLabel" destination="U1l-bj-dz8" id="WB2-Ip-hFl"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="8tO-IA-Xmv" firstAttribute="leading" secondItem="72X-sk-07I" secondAttribute="leading" id="Sg5-Yi-aNW"/>
+                            <constraint firstItem="72X-sk-07I" firstAttribute="trailing" secondItem="8tO-IA-Xmv" secondAttribute="trailing" id="oXX-YR-a7c"/>
+                            <constraint firstItem="8tO-IA-Xmv" firstAttribute="top" secondItem="72X-sk-07I" secondAttribute="top" id="w7J-MV-rgr"/>
+                            <constraint firstItem="72X-sk-07I" firstAttribute="bottom" secondItem="8tO-IA-Xmv" secondAttribute="bottom" id="xXk-Ks-aIW"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="72X-sk-07I"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="fPP-Lc-eHh"/>
+                    <connections>
+                        <outlet property="tableView" destination="8tO-IA-Xmv" id="Apg-dK-RcD"/>
+                        <segue destination="TTO-NL-eDR" kind="show" identifier="showCar" id="Wtd-Fc-QWU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TTx-NN-xzB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="42.399999999999999" y="160.56971514242881"/>
+        </scene>
+        <!--Car View Controller-->
+        <scene sceneID="jce-XU-fPF">
+            <objects>
+                <viewController id="TTO-NL-eDR" customClass="CarViewController" customModule="MVVM_practical" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="aHg-EA-zjJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="JGh-bU-6ll">
+                                <rect key="frame" x="12" y="248.5" width="351" height="106"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Make" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qCU-jC-okt">
+                                        <rect key="frame" x="0.0" y="0.0" width="351" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Model" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SZ8-Di-Saf">
+                                        <rect key="frame" x="0.0" y="38" width="351" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Kilowats" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VP6-V0-uFL">
+                                        <rect key="frame" x="0.0" y="76" width="351" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="JGh-bU-6ll" firstAttribute="centerY" secondItem="aHg-EA-zjJ" secondAttribute="centerY" id="AGJ-QN-iRM"/>
+                            <constraint firstItem="JGh-bU-6ll" firstAttribute="centerX" secondItem="aHg-EA-zjJ" secondAttribute="centerX" id="Aoh-GD-ylS"/>
+                            <constraint firstItem="cRO-rY-b8j" firstAttribute="trailing" secondItem="JGh-bU-6ll" secondAttribute="trailing" constant="12" id="TXv-BT-I4y"/>
+                            <constraint firstItem="JGh-bU-6ll" firstAttribute="leading" secondItem="cRO-rY-b8j" secondAttribute="leading" constant="12" id="t1t-ar-fqO"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="cRO-rY-b8j"/>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <connections>
+                        <outlet property="kilowattField" destination="VP6-V0-uFL" id="tuJ-C0-JeT"/>
+                        <outlet property="makeField" destination="qCU-jC-okt" id="5d6-L6-e14"/>
+                        <outlet property="modelField" destination="SZ8-Di-Saf" id="tCV-Mw-kI3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bHr-yS-VkX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="773.60000000000002" y="160.56971514242881"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="GDP-j0-xBB">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kbt-qK-LrH" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="dXS-lE-DNv">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="k0t-lU-zlC" kind="relationship" relationship="rootViewController" id="o21-sP-Hf9"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4iF-bR-vHb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-896.79999999999995" y="160.56971514242881"/>
+        </scene>
+    </scenes>
+</document>
