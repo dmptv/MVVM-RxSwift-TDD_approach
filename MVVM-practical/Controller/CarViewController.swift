@@ -56,8 +56,11 @@ class CarViewController: UIViewController {
             .orEmpty
             .filter { string -> Bool in
                 // Validate we are only passing integer or empty strings (which result in 0 HP)
+                // if true then it passes further
                 return Int(string) != nil || string.isEmpty
-            }.bind(to: carViewModel.kilowattText).disposed(by: disposeBag)
+            }
+            .bind(to: carViewModel.kilowattText)
+            .disposed(by: disposeBag)
     }
     
     private func subdcribeForTitle(_ carViewModel: CarViewModel) {

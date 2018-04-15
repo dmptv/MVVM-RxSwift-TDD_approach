@@ -21,19 +21,21 @@ class CarTableViewCell: UITableViewCell {
     
     var carViewModel: CarViewModel? {
         didSet {
-            guard let cvm = carViewModel else { return }
+            guard let carViewModel = carViewModel else { return }
             
-            cvm.titleText.bind(to: carTitleLabel.rx.text).disposed(by: disposeBag)
-            cvm.horsepowerText.bind(to: carPowerLAbel.rx.text).disposed(by: disposeBag)
+            carViewModel.titleText.bind(to: carTitleLabel.rx.text).disposed(by: disposeBag)
+            carViewModel.horsepowerText.bind(to: carPowerLAbel.rx.text).disposed(by: disposeBag)
             
-            guard let photoURL = cvm.photoURL else { return }
+            guard let photoURL = carViewModel.photoURL else { return }
             URLSession.shared.rx.data(request: URLRequest(url: photoURL))
-                .subscribe(onNext: { data in
+                .subscribe(onNext:  { data in
                     DispatchQueue.main.async {
                         self.carPhotoView.image = UIImage(data: data)
                         self.carPhotoView.setNeedsLayout()
                     }
-                })
+                }, onError: { error in
+                    print("error occurs", error.localizedDescription)
+            })
             .disposed(by: disposeBag)
         }
     }

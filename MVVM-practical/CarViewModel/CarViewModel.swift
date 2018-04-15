@@ -44,6 +44,7 @@ class CarViewModel {
         })
         .disposed(by: disposeBag)
         
+        
         // It uses the combineLatest function to combine whatever changes
         // the makeText and titleText receive, combine them into one string
         // and assign them to titleText
@@ -51,6 +52,7 @@ class CarViewModel {
         Observable.combineLatest(makeText.asObservable(), modelText.asObservable()) {
             return $0 + " " + $1
         }.bind(to: titleText).disposed(by: disposeBag)
+        
 
         // parse a number from whatever string the kilowattText subject holds
         // and binds the calculated and decorated horsepower string to horsepowerText
@@ -58,11 +60,15 @@ class CarViewModel {
         kilowattText = BehaviorSubject(value: String(car.kilowatts))
         kilowattText.map { kilowatts -> String in
             let kw = Int(kilowatts) ?? 0
+            // if negative than 0
             let horsepower = max(Int(round(Double(kw) * CarViewModel.horsepowerPerKilowatt)), 0)
             return "\(horsepower) HP"
         }.bind(to: horsepowerText).disposed(by: disposeBag)
         
     }
+
+    
+    
 
 }
 
