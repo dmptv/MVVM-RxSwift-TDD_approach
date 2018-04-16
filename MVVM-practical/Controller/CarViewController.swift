@@ -29,12 +29,23 @@ class CarViewController: UIViewController {
         subdcribeForTitle(carViewModel)
     }
     
+    // Private (bind view model)
+    
     private func bindViewmodelToTextfield(_ carViewModel: CarViewModel) {
         // Assigning carViewModel's properties to our three text fields
         carViewModel.makeText.bind(to: makeField.rx.text).disposed(by: disposeBag)
         carViewModel.modelText.bind(to: modelField.rx.text).disposed(by: disposeBag)
         carViewModel.kilowattText.bind(to: kilowattField.rx.text).disposed(by: disposeBag)
     }
+    
+    private func subdcribeForTitle(_ carViewModel: CarViewModel) {
+        // Assigning the titleText to our View Controller title
+        carViewModel.titleText.subscribe(onNext: { title in
+            self.navigationItem.title = title
+        }).disposed(by: disposeBag)
+    }
+    
+    // (bind ui elements)
     
     private func bindInputsFromTextfieldsToViewmodel(_ carViewModel: CarViewModel) {
         // Binding whatever the input is in our three text fields to our carViewModel's properties
@@ -62,14 +73,6 @@ class CarViewController: UIViewController {
             .bind(to: carViewModel.kilowattText)
             .disposed(by: disposeBag)
     }
-    
-    private func subdcribeForTitle(_ carViewModel: CarViewModel) {
-        // Assigning the titleText to our View Controller title
-        carViewModel.titleText.subscribe(onNext: { title in
-            self.navigationItem.title = title
-        }).disposed(by: disposeBag)
-    }
-    
 }
 
 
